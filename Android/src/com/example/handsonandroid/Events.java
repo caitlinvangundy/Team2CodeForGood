@@ -1,9 +1,18 @@
 package com.example.handsonandroid;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Events {
+/**
+ * 
+ * @author Garrett
+ * 
+ * Class that will hold be used to create all individual events,
+ * as well as storing all events in a static ArrayList<Events>
+ */
+public class Events implements Serializable {
 
+	//All member variables required in the spreadsheet document
 	private String occurenceID;
 	private String opportunityName;
 	private String ageGroupsServed;
@@ -34,31 +43,53 @@ public class Events {
 	private String zipCode;
 	
 	
+	//ArrayList to hold all the events being used.
 	private static ArrayList<Events> curEvents = new ArrayList<Events>();
 	
 	
 	
 	
+	/**
+	 * Default constructor
+	 */
 	public Events(){
 		
 	}
 	
+	/**
+	 * Clear the list of events
+	 */
 	public static void clearList(){
 		curEvents = new ArrayList<Events>();
 	}
 	
+	/**
+	 * Add to the list of events
+	 * @param e : The event to add
+	 */
 	public static void addToList(Events e){
 		curEvents.add(e);
 	}
 	
+	/**
+	 * Remove an item from the list of events
+	 * @param e : The event to remove
+	 */
 	public static void removeFromList(Events e){
 		curEvents.remove(e);
 	}
 	
+	/**
+	 * Get the list
+	 * @return : The list of events
+	 */
 	public static ArrayList<Events> getList(){
 		return curEvents;
 	}
 
+
+	/**** All the Getters and Setters are below! *****/
+	
 	public String getOccurenceID() {
 		return occurenceID;
 	}
@@ -291,6 +322,17 @@ public class Events {
 		Events.curEvents = curEvents;
 	}
 	
-	
+	public static Events findByName(String name){
+		
+		ArrayList<Events> eventList = Events.getList();
+		
+		for(int i = 0; i < Events.curEvents.size(); i++){
+			if(name.equals(eventList.get(i).opportunityName)){
+				return eventList.get(i);
+			}
+		}
+		
+		return null;
+	}
 	
 }

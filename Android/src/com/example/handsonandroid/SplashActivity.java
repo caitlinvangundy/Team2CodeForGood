@@ -6,7 +6,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
 
-
+/**
+ * 
+ * @author Garrett
+ *
+ * The splash activity, simply for aesthetics
+ */
 public class SplashActivity extends Activity {
 
 	private static int SPLASH_TIME_OUT = 3000; // 3 seconds.
@@ -29,16 +34,18 @@ public class SplashActivity extends Activity {
 			@Override
 			public void run(){
 				//Once timer is over, go to the new activity.
-				Intent i = null;
-				if(SaveSharedPreference.getData(getApplicationContext(), SaveSharedPreference.USER_NAME_KEY).length() == 0){
-					//HERE IS WHERE YOU GO TO YOUR MAIN ACTIVITY
-
-					i = new Intent(SplashActivity.this, HomeActivity.class);
-				}else{
-					i = new Intent(SplashActivity.this, HomeActivity.class);
+				Intent i = new Intent(SplashActivity.this, HomeActivity.class);
+				
+				//
+				if(SaveSharedPreference.getData(getApplicationContext(), SaveSharedPreference.USER_NAME_KEY).length() != 0){
+					User tempLogin = new User();
+					tempLogin.setFirstName(SaveSharedPreference.getData(getApplicationContext(), SaveSharedPreference.USER_NAME_KEY));
+					tempLogin.setUserName(SaveSharedPreference.getData(getApplicationContext(), SaveSharedPreference.USERNAME_KEY));
+					tempLogin.setId(SaveSharedPreference.getData(getApplicationContext(), SaveSharedPreference.USER_ID_KEY));
+					WebMethods.loginFromPref();
 				}
+				
 				startActivity(i);
-
 				finish();
 			}
 		}, SPLASH_TIME_OUT);

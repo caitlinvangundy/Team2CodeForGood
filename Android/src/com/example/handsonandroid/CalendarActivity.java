@@ -10,6 +10,7 @@ import com.example.handsonandroid.custom_calendar.CalendarAdapter;
 import com.example.handsonandroid.custom_calendar.CalendarUtility;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,10 +21,18 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * 
+ * @author Garrett
+ *
+ *
+ * Activity to use to launch the Calendar for the application
+ */
 public class CalendarActivity extends Activity {
 
  public GregorianCalendar month, itemmonth;// calendar instances.
@@ -38,6 +47,9 @@ public class CalendarActivity extends Activity {
  ArrayList date;
  ArrayList desc;
 
+ /**
+  * What happens for the onCreate method.
+  */
  public void onCreate(Bundle savedInstanceState) {
 	  super.onCreate(savedInstanceState);
 	  setContentView(R.layout.activity_calendar);
@@ -47,6 +59,7 @@ public class CalendarActivity extends Activity {
 	  month = (GregorianCalendar) GregorianCalendar.getInstance();
 	  itemmonth = (GregorianCalendar) month.clone();
 	
+	  //Create new items arraylist
 	  items = new ArrayList();
 	
 	  adapter = new CalendarAdapter(this, month);
@@ -62,6 +75,8 @@ public class CalendarActivity extends Activity {
 	
 	  RelativeLayout previous = (RelativeLayout) findViewById(R.id.previous);
 	
+	  
+	  //Set the button lsiterners
 	  previous.setOnClickListener(new OnClickListener() {
 
    @Override
@@ -82,6 +97,10 @@ public class CalendarActivity extends Activity {
    }
   });
 
+  
+  /**
+   * What happens when one of the calendar items are clicked
+   */
   gridview.setOnItemClickListener(new OnItemClickListener() {
    public void onItemClick(AdapterView parent, View v,
 	 int position, long id) {
@@ -117,6 +136,33 @@ public class CalendarActivity extends Activity {
 	   if (desc.size() > 0) {
 		   for (int i = 0; i < desc.size(); i++) {
 			   TextView rowTextView = new TextView(CalendarActivity.this);
+			   rowTextView.setTextSize(16f);
+			   rowTextView.setClickable(true);
+			   rowTextView.setOnClickListener(new OnClickListener(){
+
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					TextView view = (TextView) v;
+					String title = view.getText().toString().substring(6, view.getText().toString().length());
+					
+					
+					Events event = Events.findByName(title);
+					
+					boolean queryEventName = true;
+					if(event == null)queryEventName = false;
+					
+					if(queryEventName){
+						Intent i = new Intent(CalendarActivity.this, EventActivity.class);
+						i.putExtra("Event", event);
+					}else{
+						//Do nothing
+					}
+				}
+				  
+				   
+				   
+			   });
 
 			   // set some properties of rowTextView or something
 			   rowTextView.setText("Event:" + desc.get(i));
@@ -136,6 +182,9 @@ public class CalendarActivity extends Activity {
   	});
  }
 
+ /**
+  * Set the next month when the next button is clicked.
+  */
  	protected void setNextMonth() {
  		if (month.get(GregorianCalendar.MONTH) == month
  				.getActualMaximum(GregorianCalendar.MONTH)) {
@@ -148,6 +197,9 @@ public class CalendarActivity extends Activity {
 
  	}
 
+ 	/**
+ 	 * Set the previous month when the previous button is clicked.
+ 	 */
  	protected void setPreviousMonth() {
  		if (month.get(GregorianCalendar.MONTH) == month
  				.getActualMinimum(GregorianCalendar.MONTH)) {
@@ -160,11 +212,18 @@ public class CalendarActivity extends Activity {
 
  	}
 
+ 	/**
+ 	 * Show the toast
+ 	 * @param string : String to toast
+ 	 */
  	protected void showToast(String string) {
  		Toast.makeText(this, string, Toast.LENGTH_SHORT).show();
 
  	}
 
+ 	/**
+ 	 * Refresh the calendar
+ 	 */
  	public void refreshCalendar() {
  		TextView title = (TextView) findViewById(R.id.title);
 
@@ -175,6 +234,9 @@ public class CalendarActivity extends Activity {
  		title.setText(android.text.format.DateFormat.format("MMMM yyyy", month));
  	}
 
+ 	/**
+ 	 * Run the calendar Runnable, clears the items, updates the items, currently prints out the contents as well.
+ 	 */
  	public Runnable calendarUpdater = new Runnable() {
 
  		@Override

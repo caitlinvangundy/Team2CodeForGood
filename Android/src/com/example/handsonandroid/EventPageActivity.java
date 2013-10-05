@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-/*
- * Share the url with share button
- * To do: everything else
- */
 
+
+/**
+ * 
+ * @author Garrett
+ *
+ * Event page that will list all the events currently being used.
+ */
 public class EventPageActivity extends Activity implements OnClickListener{
 	private String eventUrl;
 	

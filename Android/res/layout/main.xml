@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:layout_gravity="center"
     android:orientation="vertical"
+    android:background="#ffffff"
     tools:context=".MainActivity"
     tools:ignore="HardcodedText" >
 
@@ -13,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="left"
         android:orientation="vertical"
+       
         tools:ignore="HardcodedText" >
 
         <ImageView
@@ -20,6 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="138dp"
             android:contentDescription="@string/hands_on_logo"
+            android:layout_marginTop="100dp"
             android:src="@drawable/hands_on_white" />
 
     </LinearLayout>

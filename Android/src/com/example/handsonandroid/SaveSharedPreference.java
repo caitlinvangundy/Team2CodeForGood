@@ -4,7 +4,15 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
 
-
+/**
+ * 
+ * @author Garrett
+ * 
+ * Class saves the users information so they don't
+ * have to constantly log in when using the app.
+ * 
+ * Will connect to server when possible to get rest of information.
+ */
 public class SaveSharedPreference {
 
 	public static final String USERNAME_KEY = "username";
@@ -16,12 +24,24 @@ public class SaveSharedPreference {
 		return PreferenceManager.getDefaultSharedPreferences(ctx);
 	}
 	
-	public static void setData(Context ctx, String KEY, String userName){
+	/**
+	 * Set the data
+	 * @param ctx : The context to use
+	 * @param KEY : The key (See Constants)
+	 * @param data: The data to save
+	 */
+	public static void setData(Context ctx, String KEY, String data){
 		Editor editor = getSharedPreferences(ctx).edit();
-		editor.putString(KEY, userName);
+		editor.putString(KEY, data);
 		editor.commit();
 	}
 
+	/**
+	 * Get a saved data
+	 * @param ctx : The context to use
+	 * @param KEY : The key (See Constants)
+	 * @return : The data (emtpy string if non-existant)
+	 */
 	public static String getData(Context ctx, String KEY){
 		return getSharedPreferences(ctx).getString(KEY, "");
 	}

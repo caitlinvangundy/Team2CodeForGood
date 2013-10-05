@@ -7,6 +7,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+/**
+ * 
+ * @author Garrett
+ *
+ * Class that is the Home activity of the app, the main screen. Holds all
+ * the buttons and directions to the many activities in the application
+ */
 public class HomeActivity extends Activity
 {
 	protected void onCreate(Bundle savedInstanceState) {
@@ -14,6 +21,9 @@ public class HomeActivity extends Activity
 		setContentView(R.layout.main);
 		
 	}
+	
+	/*** All the OnClickListeners for the buttons ****/
+	
 	public void event(View v)
 	{
 		Intent i = new Intent(HomeActivity.this, FeedActivity.class);

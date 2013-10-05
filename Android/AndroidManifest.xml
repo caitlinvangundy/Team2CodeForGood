@@ -52,6 +52,10 @@
             android:name="com.example.handsonandroid.HomeActivity"
             android:label="default" >
         </activity>
+          <activity
+            android:name="com.example.handsonandroid.EventActivity"
+            android:label="default" >
+        </activity>
     </application>
 
 </manifest>
