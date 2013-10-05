@@ -125,6 +125,7 @@ public class CalendarActivity extends Activity {
 		   setNextMonth();
 		   refreshCalendar();
 	   }
+	   v.setBackgroundResource(R.drawable.calendar_cell);
 	   ((CalendarAdapter) parent.getAdapter()).setSelected(v);
 
 	   for (int i = 0; i < CalendarUtility.startDates.size(); i++) {

@@ -3,6 +3,8 @@ package com.example.handsonandroid;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import com.example.handsonandroid.mail_utility.Mail;
+
 import android.content.Context;
 
 /**
@@ -48,6 +50,7 @@ public class WebMethods {
 			SaveSharedPreference.setData(ctx, SaveSharedPreference.USERNAME_KEY, userName);
 			
 		}
+
 		return false;
 	}
 	
@@ -69,6 +72,16 @@ public class WebMethods {
 	 */
 	public static boolean registerUser(){
 		
+		//Insert into table, then create a new user with that data
+		
+		//Using the users email
+		String userEmail = "test@test.com";
+		
+		Mail mailSender = new Mail();
+		mailSender.setTo(new String[] { userEmail });
+		mailSender.setBody("Welcome User! Thanks for Registering with HandsOn Android!");
+		mailSender.sendMail();
+		
 		return false;
 	}
 	
@@ -87,7 +100,23 @@ public class WebMethods {
 		Date date = new Date(1994, 05, 27);
 		int beginTime = 000;
 		int endTime = 000;
+		String firstName = "Default";
 		
+		String eventCoordinatorEmail = "test@test.com";
+		String userEmail = "test@test.com";
+		
+		Mail mailSender = new Mail();
+		mailSender.setTo(new String[] { userEmail });
+		mailSender.setBody("Welcome User! Thanks for Registering for the event " + title + "! The date is " + date.toString() + 
+				" from " + beginTime + " to " + endTime);
+		mailSender.sendMail();
+		
+		mailSender = new Mail();
+		mailSender.setTo(new String[] { eventCoordinatorEmail} );
+		mailSender.setBody("The user " + firstName + " has signed up for the event " + title + "!" + " Their Email is " + userEmail);
+		mailSender.sendMail();
+		
+		//Unimplemented
 		WebMethods.addEventToCalendar(title, description, location, date, beginTime, endTime);
 		return false;
 	}

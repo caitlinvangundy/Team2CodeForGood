@@ -1,0 +1,74 @@
+SELECT * FROM event 
+WHERE opportunity_name 
+	LIKE "%?%"
+OR
+age_group_served
+	LIKE "%?%"
+OR
+volunteer_city
+	LIKE "%?%"
+OR
+volunteer_country
+	LIKE "%?%"
+OR
+volunteer_description
+	LIKE "%?%"
+OR
+end_date_time
+	LIKE "%?%"
+OR
+start_date_time
+	LIKE "%?%"
+OR
+google_map_url
+	LIKE "%?%"
+OR
+organization
+	LIKE "%?%"
+OR
+organization_served_name
+	LIKE "%?%"
+OR
+organization_served_url
+	LIKE "%?%"
+OR
+partner_staff_email
+	LIKE "%?%"
+OR
+primary_impact_area
+	LIKE "%?%"
+OR
+state_province
+	LIKE "%?%"
+OR
+primary_impact_area
+	LIKE "%?%"
+OR
+coordinator_email
+	LIKE "%?%"
+OR
+coordinator_name
+	LIKE "%?%"
+OR
+location
+	LIKE "%?%"
+OR
+location_detail_page
+	LIKE "%?%"
+OR
+location_detail_page
+	LIKE "%?%"
+OR
+volunteer_activity_type
+	LIKE "%?%"
+OR
+registration_type
+	LIKE "%?%"
+OR
+street
+	LIKE "%?%"
+OR
+zip_code
+	LIKE "%?%"
+;
+

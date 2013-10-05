@@ -1,0 +1,1 @@
+SELECT registration.opportunityID FROM registration INNER JOIN opportunity ON registration.opportunityID=opportunity.id WHERE registration.userID=?

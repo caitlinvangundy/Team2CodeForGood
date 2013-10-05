@@ -1,20 +1,18 @@
-package com.example.handsonandroid;
+package com.team2.database;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Class that will hold be used to create all individual events,
- * as well as storing all events in a static ArrayList<Events>
+ * This class is intended to serve as a model for the data pulled from the
+ * database (event table) in order to interact with the user interface.
  * 
- * @author Garrett
+ * @author Ethan Hill
  * 
  */
-public class Events implements Serializable {
+public class Event {
 
-	//All member variables required in the spreadsheet document
-	private String occurenceID;
-	private String EventName;
+	private String eventID;
+	private String eventName;
 	private String ageGroupsServed;
 	private String volunteerCity;
 	private String volunteerCountry;
@@ -27,12 +25,12 @@ public class Events implements Serializable {
 	private String minAttendance;
 	private String orgServedID;
 	private String orgServedName;
-	private String organizationServedURl;
+	private String organizationServedURL;
 	private String partnerStaffEmail;
 	private String primaryImpactArea;
-	private String state;
+	private String stateProvince;
 	private String status;
-	private boolean groups;
+	private int suitableGroups;
 	private String coordinatorEmail;
 	private String coordinatorName;
 	private String location;
@@ -41,73 +39,60 @@ public class Events implements Serializable {
 	private String registrationType;
 	private String street;
 	private String zipCode;
-	
-	
-	//ArrayList to hold all the events being used.
-	private static ArrayList<Events> curEvents = new ArrayList<Events>();
-	
-	
-	
-	
+
 	/**
-	 * Default constructor
+	 * a static field that enables passing the same list of events around the
+	 * application
 	 */
-	public Events(){
-		
-	}
-	
+	private static ArrayList<Event> curEvents = new ArrayList<Event>();
+
 	/**
-	 * Clear the list of events
+	 * Default Constructor
 	 */
-	public static void clearList(){
-		curEvents = new ArrayList<Events>();
-	}
-	
-	/**
-	 * Add to the list of events
-	 * @param e : The event to add
-	 */
-	public static void addToList(Events e){
-		curEvents.add(e);
-	}
-	
-	/**
-	 * Remove an item from the list of events
-	 * @param e : The event to remove
-	 */
-	public static void removeFromList(Events e){
-		curEvents.remove(e);
-	}
-	
-	/**
-	 * Get the list
-	 * @return : The list of events
-	 */
-	public static ArrayList<Events> getList(){
-		return curEvents;
+	public Event() {
+		// Do nothing when this is constructed, the setters will initialize the
+		// fields
 	}
 
-
-	/**** All the Getters and Setters are below! *****/
-	
-	public String getOccurenceID() {
-		return occurenceID;
+	// The list methods
+	public static void clearList() {
+		Event.curEvents = new ArrayList<Event>();
 	}
 
-	public void setOccurenceID(String occurenceID) {
-		this.occurenceID = occurenceID;
+	public static void addToList(Event e) {
+		Event.curEvents.add(e);
 	}
 
-	public String getOpportunityName() {
-		return EventName;
+	public static void removeFromList(Event e) {
+		Event.curEvents.remove(e);
 	}
 
-	public void setOpportunityName(String opportunityName) {
-		this.EventName = opportunityName;
+	public static ArrayList<Event> getList() {
+		return Event.curEvents;
+
+	}
+
+	/**
+	 * Getters and Setters below
+	 */
+	public String getEventID() {
+		return this.eventID;
+	}
+
+	public void setEventID(String occurenceID) {
+		this.eventID = occurenceID;
+	}
+
+	public String getEventName() {
+		return this.eventName;
+	}
+
+	public void setEventName(String eventName) {
+		this.eventName = eventName;
 	}
 
 	public String getAgeGroupsServed() {
-		return ageGroupsServed;
+		return this.ageGroupsServed;
 	}
 
 	public void setAgeGroupsServed(String ageGroupsServed) {
@@ -123,7 +108,7 @@ public class Events implements Serializable {
 	}
 
 	public String getVolunteerCountry() {
-		return volunteerCountry;
+		return this.volunteerCountry;
 	}
 
 	public void setVolunteerCountry(String volunteerCountry) {
@@ -131,7 +116,7 @@ public class Events implements Serializable {
 	}
 
 	public String getVolunteerDescription() {
-		return volunteerDescription;
+		return this.volunteerDescription;
 	}
 
 	public void setVolunteerDescription(String volunteerDescription) {
@@ -147,7 +132,7 @@ public class Events implements Serializable {
 	}
 
 	public String getStartDate() {
-		return startDate;
+		return this.startDate;
 	}
 
 	public void setStartDate(String startDate) {
@@ -163,7 +148,7 @@ public class Events implements Serializable {
 	}
 
 	public String getOrganization() {
-		return organization;
+		return this.organization;
 	}
 
 	public void setOrganization(String organization) {
@@ -179,7 +164,7 @@ public class Events implements Serializable {
 	}
 
 	public String getMinAttendance() {
-		return minAttendance;
+		return this.minAttendance;
 	}
 
 	public void setMinAttendance(String minAttendance) {
@@ -195,23 +180,23 @@ public class Events implements Serializable {
 	}
 
 	public String getOrgServedName() {
-		return orgServedName;
+		return this.orgServedName;
 	}
 
 	public void setOrgServedName(String orgServedName) {
 		this.orgServedName = orgServedName;
 	}
 
-	public String getOrganizationServedURl() {
-		return organizationServedURl;
+	public String getOrganizationServedURL() {
+		return this.organizationServedURL;
 	}
 
-	public void setOrganizationServedURl(String organizationServedURl) {
-		this.organizationServedURl = organizationServedURl;
+	public void setOrganizationServedURL(String organizationServedURl) {
+		this.organizationServedURL = organizationServedURl;
 	}
 
 	public String getPartnerStaffEmail() {
-		return partnerStaffEmail;
+		return this.partnerStaffEmail;
 	}
 
 	public void setPartnerStaffEmail(String partnerStaffEmail) {
@@ -219,39 +204,31 @@ public class Events implements Serializable {
 	}
 
 	public String getPrimaryImpactArea() {
-		return primaryImpactArea;
+		return this.primaryImpactArea;
 	}
 
 	public void setPrimaryImpactArea(String primaryImpactArea) {
 		this.primaryImpactArea = primaryImpactArea;
 	}
 
-	public String getState() {
-		return state;
+	public String getStateProvince() {
+		return this.stateProvince;
 	}
 
-	public void setState(String state) {
-		this.state = state;
+	public void setStateProvince(String state) {
+		this.stateProvince = state;
 	}
 
 	public String getStatus() {
-		return status;
+		return this.status;
 	}
 
 	public void setStatus(String status) {
 		this.status = status;
 	}
 
-	public boolean isGroups() {
-		return groups;
-	}
-
-	public void setGroups(boolean groups) {
-		this.groups = groups;
-	}
-
 	public String getCoordinatorEmail() {
-		return coordinatorEmail;
+		return this.coordinatorEmail;
 	}
 
 	public void setCoordinatorEmail(String coordinatorEmail) {
@@ -259,7 +236,7 @@ public class Events implements Serializable {
 	}
 
 	public String getCoordinatorName() {
-		return coordinatorName;
+		return this.coordinatorName;
 	}
 
 	public void setCoordinatorName(String coordinatorName) {
@@ -267,7 +244,7 @@ public class Events implements Serializable {
 	}
 
 	public String getLocation() {
-		return location;
+		return this.location;
 	}
 
 	public void setLocation(String location) {
@@ -275,7 +252,7 @@ public class Events implements Serializable {
 	}
 
 	public String getLocationDetailpage() {
-		return locationDetailpage;
+		return this.locationDetailpage;
 	}
 
 	public void setLocationDetailpage(String locationDetailpage) {
@@ -283,7 +260,7 @@ public class Events implements Serializable {
 	}
 
 	public String getVolunteerActivityType() {
-		return volunteerActivityType;
+		return this.volunteerActivityType;
 	}
 
 	public void setVolunteerActivityType(String volunteerActivityType) {
@@ -291,7 +268,7 @@ public class Events implements Serializable {
 	}
 
 	public String getRegistrationType() {
-		return registrationType;
+		return this.registrationType;
 	}
 
 	public void setRegistrationType(String registrationType) {
@@ -299,7 +276,7 @@ public class Events implements Serializable {
 	}
 
 	public String getStreet() {
-		return street;
+		return this.street;
 	}
 
 	public void setStreet(String street) {
@@ -307,32 +284,27 @@ public class Events implements Serializable {
 	}
 
 	public String getZipCode() {
-		return zipCode;
+		return this.zipCode;
 	}
 
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
 
-	public static ArrayList<Events> getCurEvents() {
-		return curEvents;
+	public static ArrayList<Event> getCurEvents() {
+		return Event.curEvents;
 	}
 
-	public static void setCurEvents(ArrayList<Events> curEvents) {
-		Events.curEvents = curEvents;
+	public static void setCurEvents(ArrayList<Event> curEvents) {
+		Event.curEvents = curEvents;
 	}
-	
-	public static Events findByName(String name){
-		
-		ArrayList<Events> eventList = Events.getList();
-		
-		for(int i = 0; i < Events.curEvents.size(); i++){
-			if(name.equals(eventList.get(i).getOpportunityName())){
-				return eventList.get(i);
-			}
-		}
-		
-		return null;
+
+	public void setSuitableGroups(int yesOrNo) {
+		this.suitableGroups = yesOrNo;
 	}
-	
+
+	public int getSuitableGroups() {
+		return this.suitableGroups;
+	}
+
 }

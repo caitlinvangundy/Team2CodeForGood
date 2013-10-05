@@ -1,0 +1,2 @@
+DELETE FROM registration
+WHERE registration_seq_id = ?;

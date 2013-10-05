@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
 
+import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -22,8 +23,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 	/**
 	 * database file name constant
 	 */
-	private static final String DATABASE_FILE = "database.sqlite";
-
+	private static final String DATABASE_FILE_PATH = "assets/database.sqlite";
+	
 	/**
 	 * the current database version
 	 */
@@ -32,55 +33,55 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 	/**
 	 * the path to the SQL file of the create user table query
 	 */
-	private static final String CREATE_USER_TABLE_PATH = "res/database-table-creation/create_user_table.sql";
+	private static final String CREATE_USER_TABLE_PATH = "assets/create_user_table";
 
 	/**
-	 * the path to the SQL file of the create opportunity table query
+	 * the path to the SQL file of the create event table query
 	 */
-	private static final String CREATE_OPPORTUNITY_TABLE_PATH = "res/database-table-creation/create_opportunity_table.sql";
+	private static final String CREATE_EVENT_TABLE_PATH = "assets/create_event_table";
 
 	/**
 	 * the path to the SQL file of the create registration table query
 	 */
-	private static final String CREATE_REGISTRATION_TABLE_PATH = "res/database-table-creation/create_registration_table.sql";
+	private static final String CREATE_REGISTRATION_TABLE_PATH = "assets/create_registration_table";
 
 	/**
 	 * the path to the SQL drop file for the user table
 	 */
-	private static final String DROP_USER_TABLE_PATH = "res/database-table-drop/drop_user_table.sql";
+	private static final String DROP_USER_TABLE_PATH = "assets/drop_user_table";
 
 	/**
-	 * the path to the SQL drop file for the opportunity table
+	 * the path to the SQL drop file for the event table
 	 */
-	private static final String DROP_OPPORTUNITY_TABLE_PATH = "res/database-table-drop/drop_opportunity_table.sql";
+	private static final String DROP_EVENT_TABLE_PATH = "assets/drop_event_table";
 
 	/**
 	 * the path to the SQL drop file for the registration table
 	 */
-	private static final String DROP_REGISTRATION_TABLE_PATH = "res/database-table-drop/drop_registration_table.sql";
+	private static final String DROP_REGISTRATION_TABLE_PATH = "assets/drop_registration_table";
 
-	public MySQLiteHelper() {
-		super(null, DATABASE_FILE, null, DATABASE_VERSION);
+	public MySQLiteHelper(Context context) {
+		super(context, DATABASE_FILE_PATH, null, DATABASE_VERSION);
 	}
 
 	@Override
 	public void onCreate(SQLiteDatabase database) {
 
 		File createUserTableFile = new File(CREATE_USER_TABLE_PATH);
-		File createOpportunityTableFile = new File(
-				CREATE_OPPORTUNITY_TABLE_PATH);
+	  //File createOpportunityTableFile = new File(
+	  //			CREATE_EVENT_TABLE_PATH);
 		File createRegistrationTableFile = new File(
 				CREATE_REGISTRATION_TABLE_PATH);
 		try {
 			String createUserTableQuery = FileUtils
 					.readFileToString(createUserTableFile);
-			String createOpportunityTableQuery = FileUtils
-					.readFileToString(createOpportunityTableFile);
+	//	    String createEventTableQuery = FileUtils
+	//				.readFileToString(createOpportunityTableFile);
 			String createRegistrationTableQuery = FileUtils
 					.readFileToString(createRegistrationTableFile);
 
 			database.execSQL(createUserTableQuery);
-			database.execSQL(createOpportunityTableQuery);
+			//database.execSQL(createEventTableQuery);
 			database.execSQL(createRegistrationTableQuery);
 
 		} catch (IOException e) {
@@ -103,7 +104,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 				+ oldVersion + " to " + newVersion);
 
 		File dropUserTableFile = new File(DROP_USER_TABLE_PATH);
-		File dropOpportunityTableFile = new File(DROP_OPPORTUNITY_TABLE_PATH);
+		File dropOpportunityTableFile = new File(DROP_EVENT_TABLE_PATH);
 		File dropRegistrationTableFile = new File(DROP_REGISTRATION_TABLE_PATH);
 		try {
 			String dropUserTableQuery = FileUtils

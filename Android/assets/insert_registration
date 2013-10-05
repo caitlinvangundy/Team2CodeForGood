@@ -1,0 +1,2 @@
+INSERT INTO registration VALUES (?, ?, CURRENT_TIMESTAMP);
+

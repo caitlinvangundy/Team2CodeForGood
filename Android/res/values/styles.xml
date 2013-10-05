@@ -10,11 +10,20 @@
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         -->
+        <item name="android:background">#ffffff</item>
     </style>
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:background">#ffffff</item>
     </style>
+    
+    <style name="Background" parent="@android:style/Theme.Holo.Light.NoActionBar">
+        <item name="android:background">#ffffff</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    
 
 </resources>
