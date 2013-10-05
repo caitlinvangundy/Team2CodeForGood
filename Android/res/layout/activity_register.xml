@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/user_name" >
+
+        <requestFocus android:layout_height="match_parent" />
+    </EditText>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/dateOfBirthText"
+            android:layout_width="226dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Date of Birth"
+            tools:ignore="TextFields,HardcodedText" />
+
+        <Button
+            android:id="@+id/dateOfBirthButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="img"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/homeAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Home Address"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/homeCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Home City"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/homeState"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Home State"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/homeZIP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Home ZIP"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/homePhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Home Phone"
+        android:inputType="phone"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/emailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Email Address"
+        android:inputType="textEmailAddress"
+        tools:ignore="HardcodedText" />
+
+    <CheckBox
+        android:id="@+id/optEmailCentralOhio"
+        android:layout_width="289dp"
+        android:layout_height="wrap_content"
+        android:text="Yes, I&apos;d like to receive communications from HandsOn Central Ohio."
+        android:textSize="@dimen/small_text" />
+
+    <CheckBox
+        android:id="@+id/optEmailNetwork"
+        android:layout_width="274dp"
+        android:layout_height="wrap_content"
+        android:text="Yes, I&apos;d like to receive communications from HandsOn Network."
+        android:textSize="@dimen/small_text" />
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="Register"
+        tools:ignore="HardcodedText,ButtonStyle" />
+
+</LinearLayout>

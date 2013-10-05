@@ -29,10 +29,6 @@ public class FeedActivity extends Activity {
 	@Override
 	public void onStart(){
 		super.onStart();
-		
-		if(SaveSharedPreference.getData(this, SaveSharedPreference.USER_NAME_KEY).length() != 0){
-			
-		}
 	}
 	
 	@Override

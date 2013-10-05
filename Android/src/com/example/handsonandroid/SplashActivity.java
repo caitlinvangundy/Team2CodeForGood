@@ -29,12 +29,20 @@ public class SplashActivity extends Activity {
 			@Override
 			public void run(){
 				//Once timer is over, go to the new activity.
-				Intent i = new Intent(SplashActivity.this, FeedActivity.class);
+				Intent i = null;
+				if(SaveSharedPreference.getData(getApplicationContext(), SaveSharedPreference.USER_NAME_KEY).length() == 0){
+					//HERE IS WHERE YOU GO TO YOUR MAIN ACTIVITY
+					i = new Intent(SplashActivity.this, FeedActivity.class);
+				}else{
+					i = new Intent(SplashActivity.this, FeedActivity.class);
+				}
 				startActivity(i);
-				
+
 				finish();
 			}
 		}, SPLASH_TIME_OUT);
+		
+		
 	}
 
 	@Override

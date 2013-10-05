@@ -7,9 +7,10 @@ import android.preference.PreferenceManager;
 
 public class SaveSharedPreference {
 
-	public static final String USER_NAME_KEY = "username";
+	public static final String USERNAME_KEY = "username";
 	public static final String USER_PASS_KEY = "password";
-	public static final String USER_NAME = "name";
+	public static final String USER_NAME_KEY = "name";
+	public static final String USER_ID_KEY = "ID";
 	
 	static SharedPreferences getSharedPreferences(Context ctx){
 		return PreferenceManager.getDefaultSharedPreferences(ctx);
