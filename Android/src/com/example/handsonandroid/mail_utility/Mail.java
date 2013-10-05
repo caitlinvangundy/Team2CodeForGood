@@ -3,20 +3,19 @@ package com.example.handsonandroid.mail_utility;
 import java.util.Date;
 import java.util.Properties;
 
-import javax.mail.BodyPart;
-import javax.mail.Multipart;
+import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
+
+import android.os.AsyncTask;
 
 
 public class Mail extends javax.mail.Authenticator {
 
 	
-	private String user = "handsonc4g";
+	private String user = "handsonc4g@gmail.com";
 	private String password = "code4good";
 	
 	private String[] to;
@@ -34,7 +33,6 @@ public class Mail extends javax.mail.Authenticator {
 	
 	private boolean _debuggable;
 	
-	private Multipart multipart;
 	
 	public String getPassword(){
 		return password;
@@ -75,14 +73,6 @@ public class Mail extends javax.mail.Authenticator {
 	public void setSubject(String subject) {
 	    this.subject = subject;
 	}
-	
-	public Multipart getMultipart(){
-		return this.multipart;
-	}
-	
-	public void setMulitpart(Multipart part){
-		this.multipart = part;
-	}
 
 	
 	public Mail(){
@@ -97,12 +87,18 @@ public class Mail extends javax.mail.Authenticator {
 		_debuggable = false;
 		_auth = true;
 		
-		multipart = new MimeMultipart();
-		
-		
 	}
 	
-	public boolean send() throws Exception{
+	 protected PasswordAuthentication getPasswordAuthentication() {
+         return new PasswordAuthentication(user, password);
+     }
+	
+	public void sendMail(){
+		new MailSender().execute(this);
+	}
+	
+	private boolean send() throws Exception{
+		
 		
 		Properties props = _setProperties();
 		
@@ -122,12 +118,11 @@ public class Mail extends javax.mail.Authenticator {
 			msg.setSubject(subject);
 			msg.setSentDate(new Date());
 			
-			//setup meessage body
-			BodyPart messageBodyPart = new MimeBodyPart();
-			messageBodyPart.setText(body);
-			multipart.addBodyPart(messageBodyPart);
 			
-			msg.setContent(multipart);
+			msg.setContent(body, "text/html; charset=utf-8");
+			
+			//msg.setContent(multipart);
+			msg.setText(body);
 			
 			Transport.send(msg);
 			
@@ -165,4 +160,23 @@ public class Mail extends javax.mail.Authenticator {
 	public void setBody(String msg){
 		this.body = msg;
 	}
+	
+	
+	class MailSender extends AsyncTask<Mail, Void, Boolean>{
+
+		@Override
+		protected Boolean doInBackground(Mail... params) {
+			
+			try{
+				params[0].send();
+				return true;
+			}catch(Exception ex){
+				ex.printStackTrace();
+				return false;
+			}
+
+		}
+		
+	}
+	
 }
