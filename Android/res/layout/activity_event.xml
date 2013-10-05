@@ -17,6 +17,14 @@
         android:text="(event name)"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <Button
+        android:id="@+id/shareButton"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_edge"
+        android:text="Share this event" />
+
     <TextView
         android:id="@+id/eventDate"
         android:layout_width="wrap_content"
@@ -47,6 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
+        android:layout_weight="0.77"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis purus turpis, consectetur convallis nulla aliquam et. Cras fringilla in diam sed mattis. Vestibulum molestie in velit et aliquet. Nulla vitae eros semper, bibendum tortor sit amet, pellentesque enim. Nam vel quam quis mauris fringilla blandit. Morbi id risus ac ipsum mollis faucibus. Nunc blandit nisl eget elementum bibendum. Sed aliquet sagittis egestas. Mauris euismod lacus ut ornare congue. Pellentesque facilisis enim mi, dignissim malesuada erat convallis non. Fusce sed ullamcorper dui. Pellentesque vulputate turpis ut faucibus commodo. Vivamus et imperdiet justo. Donec ac urna magna."
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -75,11 +84,13 @@
 
         <Button
             android:id="@+id/expressInterestButton"
-            android:layout_width="148dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/rounded_edge"
             android:text="Express Interest" />
     </LinearLayout>
+
+   
 
 </LinearLayout>

@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:orientation="vertical"
+    tools:context=".MainActivity"
     tools:ignore="HardcodedText" >
 
     <LinearLayout
@@ -37,6 +38,7 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:background="@drawable/rounded_edge"
+            android:onClick="event"
             android:text="Events" />
 
         <Button
@@ -46,6 +48,7 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:background="@drawable/rounded_edge"
+            android:onClick="cal"
             android:text="Calendar" />
 
         <Button
@@ -55,6 +58,7 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:background="@drawable/rounded_edge"
+            android:onClick="login"
             android:text="Login" />
 
         <Button
@@ -64,6 +68,7 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:background="@drawable/rounded_edge"
+            android:onClick="register"
             android:text="Register" />
     </LinearLayout>
 

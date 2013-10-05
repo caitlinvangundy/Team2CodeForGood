@@ -6,7 +6,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="11"
+        android:minSdkVersion="13"
         android:targetSdkVersion="17" />
     <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
     <uses-permission android:name="android.permission.READ_CALENDAR"/>
@@ -40,6 +40,16 @@
         <activity
             android:name="com.example.handsonandroid.CalendarActivity"
             android:label="@string/title_activity_calendar" >
+        </activity>
+
+        <activity
+            android:name="com.example.handsonandroid.EventPageActivity"
+            android:label="default">
+        </activity>
+
+         <activity
+            android:name="com.example.handsonandroid.HomeActivity"
+            android:label="default" >
         </activity>
     </application>
 

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 
 
@@ -17,6 +19,14 @@ public class FeedActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_feed);
+		
+		ListView lv = (ListView) findViewById(R.id.event_feed);
+		
+		//Comment out temporarily
+		//String[] lv_array = (String[]) Events.getList().toArray();
+		//lv.setAdapter(new ArrayAdapter<String>(FeedActivity.this, android.R.layout.simple_list_item_1,
+		//lv_array));
+		
 	}
 
 	@Override

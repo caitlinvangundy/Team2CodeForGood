@@ -66,4 +66,15 @@ public class CalendarUtility {
 		calendar.setTimeInMillis(milliSeconds);
 		return formatter.format(calendar.getTime());
  	}
+	
+	public static String getDate(int year, int month, int day, int startHour, int endHour){
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(Calendar.DAY_OF_MONTH, day);
+		calendar.set(Calendar.MONTH, month);
+		calendar.set(Calendar.YEAR, year);
+		
+		
+		return formatter.format(calendar.getTime());
+	}
 }

@@ -32,9 +32,10 @@ public class SplashActivity extends Activity {
 				Intent i = null;
 				if(SaveSharedPreference.getData(getApplicationContext(), SaveSharedPreference.USER_NAME_KEY).length() == 0){
 					//HERE IS WHERE YOU GO TO YOUR MAIN ACTIVITY
-					i = new Intent(SplashActivity.this, CalendarActivity.class);
+
+					i = new Intent(SplashActivity.this, HomeActivity.class);
 				}else{
-					i = new Intent(SplashActivity.this, FeedActivity.class);
+					i = new Intent(SplashActivity.this, HomeActivity.class);
 				}
 				startActivity(i);
 
