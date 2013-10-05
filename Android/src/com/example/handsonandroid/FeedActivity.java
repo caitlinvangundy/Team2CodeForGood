@@ -50,8 +50,8 @@ public class FeedActivity extends Activity {
 		ListView lv1 = (ListView) findViewById(R.id.event_feed);
 		
 		ArrayList<String> your_array_list = new ArrayList<String>();
-		your_array_list.add("foo");
-		your_array_list.add("bar");
+		your_array_list.add("Cincinatti Walk for Good");
+		your_array_list.add("JPMorgan and Chase Coding for the Good");
 
 
 		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
@@ -92,8 +92,8 @@ public class FeedActivity extends Activity {
 		ListView lv1 = (ListView) findViewById(R.id.event_feed);
 		
 		ArrayList<String> your_array_list = new ArrayList<String>();
-		your_array_list.add("foo");
-		your_array_list.add("barsss");
+		your_array_list.add("Cincinatti Walk for Good");
+		your_array_list.add("JPMorgan and Chase Coding for the Good");
 
 
 		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
@@ -132,8 +132,8 @@ public class FeedActivity extends Activity {
 		ListView lv1 = (ListView) findViewById(R.id.event_feed);
 		
 		ArrayList<String> your_array_list = new ArrayList<String>();
-		your_array_list.add("foo");
-		your_array_list.add("barsss");
+		your_array_list.add("Cincinatti Walk for Good");
+		your_array_list.add("JPMorgan and Chase Coding for the Good");
 
 
 		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
@@ -172,8 +172,8 @@ public class FeedActivity extends Activity {
 		ListView lv1 = (ListView) findViewById(R.id.event_feed);
 		
 		ArrayList<String> your_array_list = new ArrayList<String>();
-		your_array_list.add("foo");
-		your_array_list.add("barsss");
+		your_array_list.add("Cincinatti Walk for Good");
+		your_array_list.add("JPMorgan and Chase Coding for the Good");
 
 
 		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
@@ -212,8 +212,8 @@ public class FeedActivity extends Activity {
 		ListView lv1 = (ListView) findViewById(R.id.event_feed);
 		
 		ArrayList<String> your_array_list = new ArrayList<String>();
-		your_array_list.add("foo");
-		your_array_list.add("barsss");
+		your_array_list.add("Cincinatti Walk for Good");
+		your_array_list.add("JPMorgan and Chase Coding for the Good");
 
 
 		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
@@ -252,8 +252,8 @@ public class FeedActivity extends Activity {
 		ListView lv1 = (ListView) findViewById(R.id.event_feed);
 		
 		ArrayList<String> your_array_list = new ArrayList<String>();
-		your_array_list.add("foo");
-		your_array_list.add("barsss");
+		your_array_list.add("Cincinatti Walk for Good");
+		your_array_list.add("JPMorgan and Chase Coding for the Good");
 
 
 		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
@@ -292,8 +292,8 @@ public class FeedActivity extends Activity {
 		ListView lv1 = (ListView) findViewById(R.id.event_feed);
 		
 		ArrayList<String> your_array_list = new ArrayList<String>();
-		your_array_list.add("foo");
-		your_array_list.add("barsss");
+		your_array_list.add("Cincinatti Walk for Good");
+		your_array_list.add("JPMorgan and Chase Coding for the Good");
 
 
 		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
