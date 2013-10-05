@@ -8,6 +8,8 @@
     <uses-sdk
         android:minSdkVersion="11"
         android:targetSdkVersion="17" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
 
     <application
         android:allowBackup="true"
@@ -34,6 +36,10 @@
         <activity
             android:name="com.example.handsonandroid.RegisterActivity"
             android:label="@string/title_activity_register" >
+        </activity>
+        <activity
+            android:name="com.example.handsonandroid.CalendarActivity"
+            android:label="@string/title_activity_calendar" >
         </activity>
     </application>
 

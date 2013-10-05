@@ -32,6 +32,7 @@ public class RegisterActivity extends Activity implements OnClickListener {
 	
 	@Override
 	public void onStart(){
+		super.onStart();
 		this.findViewById(R.id.registerButton).setOnClickListener(this);
 	}
 	

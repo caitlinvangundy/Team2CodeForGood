@@ -1,5 +1,7 @@
 package com.example.handsonandroid;
 
+import java.sql.Date;
+
 public class User {
 
 	private String id;
@@ -21,8 +23,20 @@ public class User {
 	public User(String userName, String password, String firstName){
 		this.userName = userName;
 		this.firstName = firstName;
-		//Login function below
-		//WebMethods.login();
+		
+		WebMethods.login();
 	}
 	
+	
+	public static void setUser(User user){
+		User.user = user;
+	}
+	
+	public static User getUser(){
+		return User.user;
+	}
+	
+	public void setAge(Date date){
+		//Do math to set the date.
+	}
 }
