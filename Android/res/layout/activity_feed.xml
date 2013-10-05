@@ -25,7 +25,7 @@
         android:layout_alignBottom="@+id/editText1"
         android:layout_alignParentRight="true"
         android:onClick="test"
-        android:text="Button" />
+        android:text="Search!" />
 
     <TextView
         android:id="@+id/textView1"
@@ -36,7 +36,7 @@
         android:layout_marginTop="22dp"
         android:onClick="t1asa"
         android:clickable="true"
-        android:text="TEXT1"
+        android:text="Homeless"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -46,7 +46,7 @@
         android:layout_alignBaseline="@+id/textView3"
         android:layout_alignBottom="@+id/textView3"
         android:layout_alignLeft="@+id/textView2"
-        android:text="TEXT4"
+        android:text="Child Care"
         android:clickable="true"
         android:onClick="t4"
         android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -58,7 +58,7 @@
         android:layout_alignLeft="@+id/textView3"
         android:layout_below="@+id/textView3"
         android:layout_marginTop="18dp"
-        android:text="TEXT5"
+        android:text="Construction"
         android:clickable="true"
         android:onClick="t5"
         android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -70,7 +70,7 @@
         android:layout_alignBaseline="@+id/textView5"
         android:layout_alignBottom="@+id/textView5"
         android:layout_alignRight="@+id/textView4"
-        android:text="TEXT6"
+        android:text="Walks"
         android:clickable="true"
         android:onClick="t6"
         android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -89,7 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView3"
         android:layout_toLeftOf="@+id/button1"
-        android:text="TEXT2"
+        android:text="Education"
         android:onClick="t2"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -100,7 +100,7 @@
         android:layout_alignLeft="@+id/textView1"
         android:layout_below="@+id/textView1"
         android:layout_marginTop="21dp"
-        android:text="TEXT3"
+        android:text="Animals"
         android:onClick="t3"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
