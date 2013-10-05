@@ -10,11 +10,11 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/hands_on_black"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         <activity
-            android:name="com.example.handsonandroid.MainActivity"
+            android:name="com.example.handsonandroid.FeedActivity"
             android:label="@string/app_name" >
         </activity>
         <activity

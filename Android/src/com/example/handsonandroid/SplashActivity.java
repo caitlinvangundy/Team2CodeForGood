@@ -14,7 +14,6 @@ public class SplashActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		getActionBar().hide();
 		setContentView(R.layout.activity_splash);
 		
 		
@@ -30,7 +29,7 @@ public class SplashActivity extends Activity {
 			@Override
 			public void run(){
 				//Once timer is over, go to the new activity.
-				Intent i = new Intent(SplashActivity.this, MainActivity.class);
+				Intent i = new Intent(SplashActivity.this, FeedActivity.class);
 				startActivity(i);
 				
 				finish();

@@ -7,6 +7,6 @@
     <string name="password">Password</string>
 	<string name="hands_on_logo">Hands On Logo</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_splash">HandsOn Android</string>
 
 </resources>
